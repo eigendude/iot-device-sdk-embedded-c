@@ -37,7 +37,7 @@ iotc_bsp_tls_state_t iotc_bsp_tls_recv_callback(char* buf, int sz,
   assert(NULL != context);
   assert(NULL != bytes_read);
 
-  // iotc_debug_format( "Entering: %s", __FUNCTION__ );
+  iotc_debug_format( "Entering: %s", __FUNCTION__ );
 
   iotc_tls_layer_state_t* layer_data =
       (iotc_tls_layer_state_t*)IOTC_THIS_LAYER(context)->user_data;
