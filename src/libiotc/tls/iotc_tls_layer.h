@@ -27,7 +27,7 @@ iotc_state_t iotc_tls_layer_push(void* context, void* data, iotc_state_t state);
 
 iotc_state_t iotc_tls_layer_pull(void* context, void* data, iotc_state_t state);
 
-iotc_state_t iotc_tls_layer_init(void* context, void* data, iotc_state_t state);
+iotc_state_t iotc_tls_layer_init(void* context, void* data, iotc_state_t state, const char* cert_file);
 
 iotc_state_t iotc_tls_layer_connect(void* context, void* data,
                                     iotc_state_t state);
