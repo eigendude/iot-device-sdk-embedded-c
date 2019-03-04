@@ -441,7 +441,8 @@ err_handling:
 }
 
 iotc_state_t iotc_tls_layer_init(void* context, void* data,
-                                 iotc_state_t in_out_state) {
+                                 iotc_state_t in_out_state,
+                                 const char* cert_file) {
   IOTC_LAYER_FUNCTION_PRINT_FUNCTION_DIGEST();
 
   iotc_connection_data_t* connection_data = (iotc_connection_data_t*)data;
@@ -474,8 +475,8 @@ iotc_state_t iotc_tls_layer_init(void* context, void* data,
 
   in_out_state = iotc_resource_manager_open(
       layer_data->rm_context,
-      iotc_make_handle(&iotc_tls_layer_init, context, data, in_out_state),
-      IOTC_FS_CERTIFICATE, IOTC_GLOBAL_CERTIFICATE_FILE_NAME, IOTC_FS_OPEN_READ,
+      iotc_make_handle(&iotc_tls_layer_init, context, data, in_out_state, cert_file),
+      IOTC_FS_CERTIFICATE, cert_file, IOTC_FS_OPEN_READ,
       NULL);
 
   if (IOTC_STATE_OK != in_out_state) {
@@ -499,7 +500,7 @@ iotc_state_t iotc_tls_layer_init(void* context, void* data,
 
   in_out_state = iotc_resource_manager_read(
       layer_data->rm_context,
-      iotc_make_handle(&iotc_tls_layer_init, context, data, in_out_state),
+      iotc_make_handle(&iotc_tls_layer_init, context, data, in_out_state, cert_file),
       NULL);
 
   if (IOTC_STATE_OK != in_out_state) {
