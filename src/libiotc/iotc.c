@@ -27,6 +27,7 @@
 #include "iotc_debug.h"
 #include "iotc_err.h"
 #include "iotc_event_loop.h"
+#include "iotc_fs_filenames.h"
 #include "iotc_globals.h"
 #include "iotc_handle.h"
 #include "iotc_helpers.h"
@@ -95,6 +96,16 @@ iotc_state_t iotc_initialize() {
 
 iotc_state_t iotc_shutdown() {
   iotc_bsp_rng_shutdown();
+
+  return IOTC_STATE_OK;
+}
+
+iotc_state_t iotc_set_tls_cert(const char *cert_path) {
+  if (NULL == cert_path) {
+    return IOTC_INVALID_PARAMETER;
+  }
+
+  IOTC_GLOBAL_CERTIFICATE_FILE_NAME = cert_path;
 
   return IOTC_STATE_OK;
 }

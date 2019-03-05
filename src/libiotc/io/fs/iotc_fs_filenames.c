@@ -16,5 +16,5 @@
 
 #include "iotc_fs_filename_defs.h"
 
-const char* const IOTC_GLOBAL_CERTIFICATE_FILE_NAME =
+const char* IOTC_GLOBAL_CERTIFICATE_FILE_NAME =
     IOTC_GLOBAL_CERTIFICATE_FILE_NAME_DEF;

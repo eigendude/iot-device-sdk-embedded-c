@@ -17,6 +17,6 @@
 #ifndef __IOTC_FS_FILENAMES_H__
 #define __IOTC_FS_FILENAMES_H__
 
-extern const char* const IOTC_GLOBAL_CERTIFICATE_FILE_NAME;
+extern const char* IOTC_GLOBAL_CERTIFICATE_FILE_NAME;
 
 #endif /* __IOTC_FS_FILENAMES_H__ */

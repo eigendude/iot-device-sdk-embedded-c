@@ -108,6 +108,15 @@ extern iotc_state_t iotc_initialize();
 extern iotc_state_t iotc_shutdown();
 
 /**
+ * @brief     Sets the path to the TLS certificate
+ * @detailed  This should be called before iotc_create_context() if TLS is enabled.
+ *
+ * @retval IOTC_STATE_OK           Status OK
+ * @retval IOTC_INVALID_PARAMETER  If the provided certificate path is invalid
+ */
+extern iotc_state_t iotc_set_tls_cert(const char* cert_path);
+
+/**
  * @brief     Creates a connection context for subscriptions and publications
  * @detailed  This should by invoked following a successful libiotc
  * initialization.  This  creates a specific context that can be passed to
